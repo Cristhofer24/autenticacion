@@ -10,13 +10,19 @@ import RegistroScreen from '../screens/RegistroScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import MascotaScreen from '../screens/MascotaScreen';
 import ListaMascotaScreen from '../screens/ListaMascotaScreen';
+import CamaraScreen from '../screens/CamaraScreen';
+import GaleriaScreen from '../screens/GaleriaScreen';
+import MapaScreen from '../screens/MapaScreen';
 
 const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown:false}}>
-      <Stack.Screen name="Login" component={LoginScreen} />
+    <Stack.Navigator screenOptions={{ headerShown: true }}>
+      {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
+      {/* <Stack.Screen name="Galeria" component={GaleriaScreen} /> */}
+      <Stack.Screen name="Mapa" component={MapaScreen} />
+      <Stack.Screen name="Camara" component={CamaraScreen} />
       <Stack.Screen name="Registro" component={RegistroScreen} />
       <Stack.Screen name="Drawer" component={MyDrawer} />
     </Stack.Navigator>
@@ -28,8 +34,11 @@ const Drawer = createDrawerNavigator();
 function MyDrawer() {
   return (
     <Drawer.Navigator >
-        <Drawer.Screen name="Welcome" component={WelcomeScreen} />
-        <Drawer.Screen name='Mascota' component={MyTops}/>
+     <Drawer.Screen name="Mapa" component={MapaScreen} />
+      <Drawer.Screen name="Galeria" component={GaleriaScreen} />
+      <Drawer.Screen name='Camara' component={CamaraScreen} />
+      <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+      <Drawer.Screen name='Mascota' component={MyTops} />
     </Drawer.Navigator>
   );
 }
@@ -46,10 +55,10 @@ function MyTops() {
 }
 
 
-export default function MainNavigator(){
-    return(
-        <NavigationContainer>
-            <MyStack/>
-        </NavigationContainer>
-    )
+export default function MainNavigator() {
+  return (
+    <NavigationContainer>
+      <MyDrawer />
+    </NavigationContainer>
+  )
 }
