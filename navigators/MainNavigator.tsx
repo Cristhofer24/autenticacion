@@ -18,9 +18,9 @@ const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: true }}>
-      {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
-      {/* <Stack.Screen name="Galeria" component={GaleriaScreen} /> */}
+    <Stack.Navigator screenOptions={{ headerShown: false}}>
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Galeria" component={GaleriaScreen} />
       <Stack.Screen name="Mapa" component={MapaScreen} />
       <Stack.Screen name="Camara" component={CamaraScreen} />
       <Stack.Screen name="Registro" component={RegistroScreen} />
@@ -58,7 +58,7 @@ function MyTops() {
 export default function MainNavigator() {
   return (
     <NavigationContainer>
-      <MyDrawer />
+      <MyDrawer/>
     </NavigationContainer>
   )
 }
